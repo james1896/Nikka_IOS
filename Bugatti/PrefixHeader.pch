@@ -1,0 +1,34 @@
+//
+//  PrefixHeader.pch
+//  
+//
+//  Created by toby on 08/02/2017.
+//
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* PrefixHeader_pch */
+
+#ifdef __OBJC__
+
+#import "MacroDefinition.h"
+
+#import "NikkaCategory.h"
+#import "ParserKey.h"
+#import "Masonry.h"
+
+#import "TBRuquestManager.h"
+#import "UserDataManager.h"
+#import "TBToastView.h"
+#import "APPUtils.h"
+
+#import "algorithm.h"
+
+#endif
