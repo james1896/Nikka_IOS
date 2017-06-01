@@ -11,6 +11,24 @@
 @implementation NSString (Expand)
 
 
+
+- (int)convertToByte:(NSString*)str {
+    int strlength = 0;
+    char* p = (char*)[str cStringUsingEncoding:NSUnicodeStringEncoding];
+    for (int i=0 ; i<[str lengthOfBytesUsingEncoding:NSUnicodeStringEncoding] ;i++) {
+        if (*p) {
+            p++;
+            strlength++;
+        }
+        else {
+            p++;
+        }
+    }
+    return (strlength+1)/2;
+}
+
+
+
 /**
  是否是空字符串
  

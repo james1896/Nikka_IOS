@@ -11,6 +11,16 @@
 @interface NSString (Expand)
 
 
+
+/**
+ 计算字符串的字节数（包括了中文和英文混合的）
+
+ @param str 字符串
+ @return 字节长度
+ */
+- (int)convertToByte:(NSString*)str;
+
+
 - (BOOL)isNULLString;
 /**
  自定义行间距

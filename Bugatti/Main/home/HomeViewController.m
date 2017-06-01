@@ -121,6 +121,14 @@
     }
 }
 
+//撒娇语言
+- (void)amaenboPress{
+    AmaenboController *amaenbo = [[AmaenboController alloc]init];
+    [self.navigationController pushViewController:amaenbo animated:YES];
+    
+}
+
+
 - (void)activityViewPress{
    
 }
@@ -172,13 +180,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//   self.view.backgroundColor = COLOR(86, 181, 8, 1)
     [self.view insertSubview:self.upView atIndex:0];
     [self.view addSubview:[self downView]];
      self.titleName = @"Nikka";
 }
 
-
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
 /*  ~~~~~~~~~~~~~~~~~~~~~~~     SET GET 方法      ~~~~~~~~~~~~~~~~~~~~~~~~~~   */
 
 #pragma mark - SET GET 方法
@@ -252,10 +262,7 @@
             make.right.equalTo(_activityView).with.offset(-VIEW_PACE);
             make.width.equalTo(@[remainPointLab]);
         }];
-        
-//
-//        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(activityViewPress)];
-//        [_activityView addGestureRecognizer:tap];
+    
     }
     return _activityView;
 }
@@ -343,12 +350,10 @@
         bgView1.tag = 0;
         bgView2.tag = 1;
         bgView3.tag = 2;
-        UITapGestureRecognizer *tap1 = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(actionTap:)];
-        [bgView1 addGestureRecognizer:tap1];
-        UITapGestureRecognizer *tap2 = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(actionTap:)];
-        [bgView2 addGestureRecognizer:tap2];
-        UITapGestureRecognizer *tap3 = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(actionTap:)];
-        [bgView3 addGestureRecognizer:tap3];
+        
+        [bgView1 addTapGestureRecognizerWithTarget:self action:@selector(actionTap:)];
+        [bgView2 addTapGestureRecognizerWithTarget:self action:@selector(actionTap:)];
+        [bgView3 addTapGestureRecognizerWithTarget:self action:@selector(actionTap:)];
      
     }
     return _upView;
@@ -369,12 +374,6 @@
     return downView;
 }
 
-- (void)amaenboPress{
-    AmaenboController *amaenbo = [[AmaenboController alloc]init];
-    [self.navigationController pushViewController:amaenbo animated:YES];
-    
-}
-
 //- (UILabel *)amaenboLab{
 //    if(!_amaenboLab){
 //        _amaenboLab = [[UILabel ]];
@@ -393,11 +392,6 @@
 
     }
     return _bannerImg;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end
