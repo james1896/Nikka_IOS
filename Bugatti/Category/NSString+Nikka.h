@@ -19,6 +19,10 @@
  @return 字节长度
  */
 - (int)convertToByte:(NSString*)str;
+//还不知道这两种做法的区别
+//中文占3个  英文 1个
+//NSUInteger bytes = [str lengthOfBytesUsingEncoding:NSUTF8StringEncoding];
+
 
 
 - (BOOL)isNULLString;
