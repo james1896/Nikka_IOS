@@ -1,0 +1,8 @@
+2017.6.1  1) 最大收获就是 知道 swift3.0以后取消了 #define 可以使用let来代替
+             所以 swift跟oc混编的时候是不能公用 oc的 #define文件的
+             
+          2) ios,android 中英文字母占用一个字节，中文占用3个字节
+              NSUInteger bytes = [str lengthOfBytesUsingEncoding:NSUTF8StringEncoding];
+              str.getBytes("utf-8").lenth
+          
+          
