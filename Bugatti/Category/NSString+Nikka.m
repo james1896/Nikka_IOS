@@ -6,9 +6,9 @@
 //  Copyright © 2017 toby. All rights reserved.
 //
 
-#import "NSString+Expand.h"
+#import "NSString+Nikka.h"
 
-@implementation NSString (Expand)
+@implementation NSString (Nikka)
 
 
 

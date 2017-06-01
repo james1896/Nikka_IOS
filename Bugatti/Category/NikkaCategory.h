@@ -11,7 +11,7 @@
 
 #import "UILabel+nikka.h"
 #import "UIView+Attribute.h"
-#import "NSString+Expand.h"
+#import "NSString+Nikka.h"
 #import "UIButton+NIKButton.h"
 #import "UIColor+NIKKA.h"
 #import "UITableViewCell+NIKKA.h"

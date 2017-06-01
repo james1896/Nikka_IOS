@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSString (Expand)
+@interface NSString (Nikka)
 
 
 
