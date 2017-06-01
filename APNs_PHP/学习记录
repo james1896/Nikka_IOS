@@ -5,4 +5,15 @@
               NSUInteger bytes = [str lengthOfBytesUsingEncoding:NSUTF8StringEncoding];
               str.getBytes("utf-8").lenth
           
+          3)  swift 3.0 lazy关键字实现懒加载
+          
+              lazy var zyTableView: UITableView = {
+                let tempTableView = UITableView (frame: self.view.bounds, style: UITableViewStyle.Plain)
+                tempTableView.delegate = self
+                tempTableView.dataSource = self
+                return tempTableView
+              }()
+              这是Swift中懒加载一个叫做zyTableView的变量。
+              我们今天就主要来说说这段代码.
+          
           
