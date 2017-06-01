@@ -18,7 +18,7 @@
 
 - (UILabel *)labView{
     if(!_labView){
-        _labView = [[UILabel alloc]initWithFrame:CGRectMake(VIEW_PACE, self.navbarv_bottom+10, self.view.width-VIEW_PACE*2,180)];
+        _labView = [[UILabel alloc]initWithFrame:CGRectMake(VIEW_PACE, NAV_BOTTOM+10, self.view.width-VIEW_PACE*2,180)];
         _labView.numberOfLines = 0;
         _labView.textColor = [UIColor whiteColor];
     }

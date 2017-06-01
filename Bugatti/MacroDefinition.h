@@ -15,11 +15,12 @@
 
 #define VIEW_PACE 18
 #define LEFT_EGDE 33
+#define NAV_BOTTOM (NAVBAR_HEIGHT + STATUSBAR_HEIGHT)
 
 //-------------------获取设备大小-------------------------
 //NavBar高度
-#define NavigationBar_HEIGHT 44
-#define STATUS_NAVBAR_HEIGHT 64
+#define NAVBAR_HEIGHT       44
+#define STATUSBAR_HEIGHT    20
 
 //获取屏幕 宽度、高度
 #define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)

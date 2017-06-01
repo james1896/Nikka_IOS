@@ -9,6 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface UIView (Attribute)
+
+
+- (void)addTapGestureRecognizerWithTarget:(id)target action:(SEL)action;
+
+
 /**
  *  左边距
  */

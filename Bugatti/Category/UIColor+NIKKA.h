@@ -10,6 +10,7 @@
 
 @interface UIColor (NIKKA)
 
-+ (instancetype)pinkColor;
++ (UIColor *)pinkColor;
++ (UIColor *)colortThemeGreen;
 
 @end

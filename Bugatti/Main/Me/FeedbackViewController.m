@@ -53,7 +53,7 @@
 
 - (UILabel *)numberText{
     if(!_numberText){
-        _numberText = [[UILabel alloc]initWithFrame:CGRectMake(0, STATUS_NAVBAR_HEIGHT+20, SCREEN_WIDTH-VIEW_PACE, 20)];
+        _numberText = [[UILabel alloc]initWithFrame:CGRectMake(0, NAV_BOTTOM+20, SCREEN_WIDTH-VIEW_PACE, 20)];
         _numberText.text = [NSString stringWithFormat:@"0/%lu",self.textCount];
         _numberText.textAlignment = NSTextAlignmentRight;
         _numberText.font = [UIFont systemFontOfSize:14];

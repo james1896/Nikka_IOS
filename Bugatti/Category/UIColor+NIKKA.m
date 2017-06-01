@@ -10,7 +10,11 @@
 
 @implementation UIColor (NIKKA)
 
-+ (instancetype)pinkColor{
++ (UIColor *)pinkColor{
     return COLOR(221, 193, 196, 1);
+}
+
++ (UIColor *)colortThemeGreen{
+    return COLOR(86, 181, 8, 1);
 }
 @end

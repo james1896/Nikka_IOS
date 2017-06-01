@@ -36,9 +36,6 @@ typedef enum {
 @property (nonatomic,strong) UIImage    *backgroundImage;
 
 
-
-@property (nonatomic,readonly) CGFloat      navbarv_bottom;
-
 - (void)navbarPress;
 - (void)addWhiteBackbutton;
 - (void)addGrayBackbutton;

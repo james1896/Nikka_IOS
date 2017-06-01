@@ -113,6 +113,30 @@
 
 @implementation BaseViewController
 
+#pragma mark  - 公开方法
+
+- (void)addWhiteBackbutton{
+    UIButton *button = [UIButton createWhiteBackButtonWithTarget:self action:@selector(backbutton:)];
+    [self.view addSubview:button];
+    [self.view bringSubviewToFront:button];
+    
+}
+
+- (void)addGrayBackbutton{
+    
+    UIButton *button = [UIButton createGrayBackButtonWithTarget:self action:@selector(backbutton:)];
+    [self.view addSubview:button];
+    [self.view bringSubviewToFront:button];
+    
+}
+
+- (void)addPinkBackbutton{
+    UIButton *button = [UIButton createPinkBackButtonWithTarget:self action:@selector(backbutton:)];
+    [self.view addSubview:button];
+    [self.view bringSubviewToFront:button];
+}
+
+
 #pragma mark - SliderBarAnimationViewDelegate
 
 //- (NSInteger)numberOfRowsInSliderBarView:(nonnull SliderBarAnimationView *)sliderBarView{
@@ -204,11 +228,6 @@
     return _navbarView;
 }
 
-
--(CGFloat)navbarv_bottom{
-    return self.navbarView.bottom;
-}
-
 - (void)setBackgroundImage:(UIImage *)backgroundImage{
     self.backgroundImageView.image = backgroundImage;
     UIView *maskView = [[UIView alloc] initWithFrame:self.backgroundImageView.bounds];
@@ -237,27 +256,6 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
   
-}
-
-- (void)addWhiteBackbutton{
-    UIButton *button = [UIButton createWhiteBackButtonWithTarget:self action:@selector(backbutton:)];
-    [self.view addSubview:button];
-    [self.view bringSubviewToFront:button];
-    
-}
-
-- (void)addGrayBackbutton{
-    
-    UIButton *button = [UIButton createGrayBackButtonWithTarget:self action:@selector(backbutton:)];
-    [self.view addSubview:button];
-    [self.view bringSubviewToFront:button];
-    
-}
-
-- (void)addPinkBackbutton{
-    UIButton *button = [UIButton createPinkBackButtonWithTarget:self action:@selector(backbutton:)];
-    [self.view addSubview:button];
-    [self.view bringSubviewToFront:button];
 }
 
 

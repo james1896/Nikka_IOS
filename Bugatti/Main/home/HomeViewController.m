@@ -18,6 +18,7 @@
 
 
 #import "TBKeyChain.h"
+#import "AmaenboController.h"
 
 //#import "lib.h"
 
@@ -71,13 +72,17 @@
 
 @interface HomeViewController ()
 
-@property (nonatomic,strong) UIImageView *bannerImg;
-
-@property (nonatomic,strong) UIView *upView;
-
 //活动展示View
+@property (nonatomic,strong) UIView *upView;
 @property (nonatomic,strong) UIView *activityView;
 @property (nonatomic,strong) UIView *buttonView;
+
+
+//撒娇语言
+//banner
+@property(nonatomic,strong) UILabel *amaenboLab;
+
+@property (nonatomic,strong) UIImageView *bannerImg;
 
 @end
 
@@ -101,6 +106,8 @@
          break;
         }
         case 1:{
+            AcitivityViewController *activity = [[AcitivityViewController alloc]init];
+            [self.navigationController pushViewController:activity animated:YES];
             break;
         }
         case 2:{
@@ -115,8 +122,7 @@
 }
 
 - (void)activityViewPress{
-    AcitivityViewController *activity = [[AcitivityViewController alloc]init];
-    [self.navigationController pushViewController:activity animated:YES];
+   
 }
 
 /*  ~~~~~~~~~~~~~~~~~~~~~~~     lift cycle      ~~~~~~~~~~~~~~~~~~~~~~~~~~   */
@@ -179,9 +185,77 @@
 
 - (UIView *)activityView{
     if(!_activityView){
-        _activityView = [[UIView alloc]initWithFrame:CGRectMake(0, self.navbarv_bottom, self.view.width, self.upView.height-self.navbarv_bottom-self.buttonView.height)];
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(activityViewPress)];
-        [_activityView addGestureRecognizer:tap];
+        
+        CGFloat width = self.view.width;
+        CGFloat height =self.upView.height-NAV_BOTTOM-self.buttonView.height;
+        _activityView = [[UIView alloc]initWithFrame:CGRectMake(0, NAV_BOTTOM, width, height)];
+        
+        UILabel *pointRankLab       = [UILabel new];
+        UILabel *pointRank          = [UILabel new];
+        UILabel *actNumberLab       = [UILabel new];
+        UILabel *actNumber          = [UILabel new];
+        UILabel *remainPointLab     = [UILabel new];
+        UILabel *remainPoint        = [UILabel new];
+       
+        pointRankLab.textAlignment  = NSTextAlignmentRight;
+        pointRank.textAlignment     = NSTextAlignmentRight;
+        actNumberLab.textAlignment  = NSTextAlignmentRight;
+        actNumber.textAlignment     = NSTextAlignmentRight;
+        remainPointLab.textAlignment= NSTextAlignmentRight;
+        remainPoint.textAlignment   = NSTextAlignmentCenter;
+        
+        pointRankLab.text       = @"用户积分排行";
+        pointRank.text          = @"108";
+        actNumberLab.text       = @"本次活动编号";
+        actNumber.text          = @"10900";
+        remainPointLab.text     = @"活动剩余积分";
+        remainPoint.text        = @"1999";
+        
+        pointRankLab.textColor  = COLOR(22, 91, 39, 1);
+        actNumberLab.textColor  = COLOR(22, 91, 39, 1);
+        remainPointLab.textColor= COLOR(22, 91, 39, 1);
+        pointRank.textColor     = COLOR(22, 91, 39, 1);
+        actNumber.textColor     = COLOR(22, 91, 39, 1);
+        remainPoint.textColor   = COLOR(22, 91, 39, 1);
+        
+        pointRankLab.font       = APP_FONT(18);
+        pointRank.font          = APP_FONT(18);
+        actNumberLab.font       = APP_FONT(18);
+        actNumber.font          = APP_FONT(18);
+        remainPointLab.font     = APP_FONT(18);
+        remainPoint.font        = APP_FONT(18);
+        
+        [_activityView addSubview:pointRankLab];
+        [_activityView addSubview:pointRank];
+        [_activityView addSubview:actNumberLab];
+        [_activityView addSubview:actNumber];
+        [_activityView addSubview:remainPointLab];
+        [_activityView addSubview:remainPoint];
+        
+        
+        NSMutableArray *leftArray = [NSMutableArray new];
+        [leftArray addObject:pointRankLab];
+        [leftArray addObject:pointRank];
+        [leftArray addObject:actNumberLab];
+        [leftArray addObject:actNumber];
+        NSMutableArray *rightArray = [NSMutableArray new];
+        [rightArray addObject:remainPointLab];
+        [rightArray addObject:remainPoint];
+       
+        [leftArray mas_distributeViewsAlongAxis:MASAxisTypeVertical withFixedSpacing:15 leadSpacing:10 tailSpacing:10];
+        [rightArray mas_distributeViewsAlongAxis:MASAxisTypeVertical withFixedSpacing:10 leadSpacing:30 tailSpacing:30];
+        [leftArray mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(_activityView).with.offset(VIEW_PACE);
+            make.width.equalTo(@[pointRankLab]);
+        }];
+        [rightArray mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.equalTo(_activityView).with.offset(-VIEW_PACE);
+            make.width.equalTo(@[remainPointLab]);
+        }];
+        
+//
+//        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(activityViewPress)];
+//        [_activityView addGestureRecognizer:tap];
     }
     return _activityView;
 }
@@ -285,13 +359,28 @@
     
     UIView *downView = [[UIView alloc]initWithFrame:CGRectMake(0, self.upView.bottom, self.upView.width, self.view.height-self.upView.height)];
 
-    UILabel *lab = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, downView.width, 50)];
-    lab.text = @"Here's the loyalty program app";
-    lab.textColor = COLOR(138, 190, 80, 1);
-    [downView addSubview:lab];
+    self.amaenboLab = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, downView.width, 50)];
+    self.amaenboLab.text = @"Here's the loyalty program app";
+    self.amaenboLab.textColor = COLOR(138, 190, 80, 1);
+    [self.amaenboLab addTapGestureRecognizerWithTarget:self action:@selector(amaenboPress)];
+    
+    [downView addSubview:self.amaenboLab];
     [downView addSubview:self.bannerImg];
     return downView;
 }
+
+- (void)amaenboPress{
+    AmaenboController *amaenbo = [[AmaenboController alloc]init];
+    [self.navigationController pushViewController:amaenbo animated:YES];
+    
+}
+
+//- (UILabel *)amaenboLab{
+//    if(!_amaenboLab){
+//        _amaenboLab = [[UILabel ]];
+//    }
+//    return _amaenboLab;
+//}
 
 - (UIImageView *)bannerImg{
     if(!_bannerImg){

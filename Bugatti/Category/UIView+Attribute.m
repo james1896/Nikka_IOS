@@ -10,6 +10,18 @@
 
 @implementation UIView (Attribute)
 
+
+- (void)addTapGestureRecognizerWithTarget:(id)target action:(SEL)action{
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:target action:action];
+    if(!self.isUserInteractionEnabled){
+        self.userInteractionEnabled = YES;
+    }
+    [self addGestureRecognizer:tap];
+};
+
+
+
+
 - (CGFloat)left{
     return self.frame.origin.x;
 }
