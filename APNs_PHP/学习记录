@@ -1,0 +1,24 @@
+2017.6.1  1) 最大收获就是 知道 swift3.0以后取消了 #define 可以使用let来代替
+             所以 swift跟oc混编的时候是不能公用 oc的 #define文件的
+             
+          2) ios,android 中英文字母占用一个字节，中文占用3个字节
+              NSUInteger bytes = [str lengthOfBytesUsingEncoding:NSUTF8StringEncoding];
+              str.getBytes("utf-8").lenth
+          
+          3)  swift 3.0 lazy关键字实现懒加载
+          
+              lazy var zyTableView: UITableView = {
+                let tempTableView = UITableView (frame: self.view.bounds, style: UITableViewStyle.Plain)
+                tempTableView.delegate = self
+                tempTableView.dataSource = self
+                return tempTableView
+              }()
+              这是Swift中懒加载一个叫做zyTableView的变量。
+              我们今天就主要来说说这段代码.
+              
+              **解释
+              它本质在siwft中确实是一个闭包，执行顺序是这样的，如果这个lazy修饰的变量没值，就会执行闭包中的东西，
+              不是每次都执行（本人补充：这也就是为什么在Swift中的懒加载没有oc中判断。
+              if（xx==nil）{初始化xx}的代码段）。
+          
+          
