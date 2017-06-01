@@ -11,6 +11,8 @@
 #import "BaseTabBarController.h"
 #import "BaseNavigationController.h"
 
+@class UserManager,UserDataManager;
+
 typedef enum {
     NavTitleAlignmentLeft,
     NavTitleAlignmentLeftEdge,

@@ -11,7 +11,7 @@
 #import "MeViewController.h"
 #import "BalanceViewController.h"
 #import "RecordViewController.h"
-#import "AcitivityViewController.h"
+//#import "AcitivityViewController.h"
 
 #import "UIImageView+WebCache.h"
 #import "AFHTTPSessionManager.h"
@@ -106,7 +106,9 @@
          break;
         }
         case 1:{
-            AcitivityViewController *activity = [[AcitivityViewController alloc]init];
+//            AcitivityViewController *activity = [[AcitivityViewController alloc]init];
+//            [self.navigationController pushViewController:activity animated:YES];
+            ActivityController *activity = [[ActivityController alloc]init];
             [self.navigationController pushViewController:activity animated:YES];
             break;
         }
