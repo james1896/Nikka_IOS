@@ -20,5 +20,9 @@
               它本质在siwft中确实是一个闭包，执行顺序是这样的，如果这个lazy修饰的变量没值，就会执行闭包中的东西，
               不是每次都执行（本人补充：这也就是为什么在Swift中的懒加载没有oc中判断。
               if（xx==nil）{初始化xx}的代码段）。
+            
+            4) git  如果不小心 add了不想要的文件可以使用
+               git reset HEAD 还原到上一个版本
+               git reset HEAD filename 回退某个文件
           
           
