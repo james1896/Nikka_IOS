@@ -159,6 +159,19 @@
             然后在需要引用这个库的项目的gradle.build中添加：
 
             compile 'com.kcode.github.pubutils:androidLib:0.0.2'
+            
+         3)Maven 包
+           Maven 仓库
+           发布包到本地仓库
+           发布包到 Bintray Jcenter 远程仓库
+           发布包到 Sonatype MavenCentral 远程仓库
+           搭建私有 Sonatype 仓库
+           搭建私有 Artifacotory 仓库
+           
+           
+           ***
+           拥抱 Android Studio 之四：Maven 仓库使用与私有仓库搭建（此人博客有大量android技术文章）
+           http://blog.csdn.net/chaoyue0071/article/details/50780469
               
           
           
