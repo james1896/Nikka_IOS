@@ -11,6 +11,7 @@ import UIKit
 class ActivityController : BaseViewController,UITableViewDataSource,UITableViewDelegate{
     
     var tabView : UITableView?
+    var dataArray = [String]()
     
     var _tittle: String?
     
@@ -33,8 +34,14 @@ class ActivityController : BaseViewController,UITableViewDataSource,UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.titleName = "NIKKA"
         self.navbarBackgroundColor = UIColor.colortThemeGreen();
+        
+        
+        for index in 1...20 {
+            self.dataArray.append("cellTitle: \(index)")
+        }
         
         let frame = CGRect(x: 0, y: 64, width: SCREEN_WIDTH, height: SCREEN_HEIGHT-64)
         self.tabView = UITableView(frame:frame,style:UITableViewStyle.plain)
@@ -49,12 +56,13 @@ class ActivityController : BaseViewController,UITableViewDataSource,UITableViewD
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return (self.dataArray.count)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell  = tableView.dequeueReusableCell(withIdentifier: "ActivityController_cell", for: indexPath)
-        cell.textLabel?.text = "cell:\(indexPath.row) "
+        
+        cell.textLabel?.text = self.dataArray[indexPath.row]
         return cell
     }
 }
