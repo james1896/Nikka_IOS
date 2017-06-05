@@ -75,6 +75,8 @@
 @property (nonatomic,readonly) CGFloat currentScreenLight;
 - (void)setScreenBrightness:(CGFloat)value;
 
+//获得ip地址
+- (NSString *)getIPAddress:(BOOL)preferIPv4;
 //获得uuid
 - (NSString *)getUUID;
 

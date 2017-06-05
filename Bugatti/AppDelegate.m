@@ -20,7 +20,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     ////////////////////////////////////////////////////////////////////////////
-    
+//    [[UserDataManager shareManager].deviceInfo getIPAddress:NO];
     
     //远程推送
     
