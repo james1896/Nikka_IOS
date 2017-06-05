@@ -203,9 +203,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    NSLog(@"version:%@",[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]);
+//    这里需要添加version字段
     if([APPUtils isIntradayWithLastTime:[[NSUserDefaults standardUserDefaults]
                                          doubleForKey:NIKKA_USERINFO_REQUEST_TIME]]){
     
+        
         [TBRuquestManager userInfoWithUUID:[[UserDataManager shareManager].deviceInfo getUUID]
                                     device:[APPUtils getDeviceModel]
                                   lastTime:@""
