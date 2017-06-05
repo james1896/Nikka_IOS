@@ -24,5 +24,154 @@
             4) git  如果不小心 add了不想要的文件可以使用
                git reset HEAD 还原到上一个版本
                git reset HEAD filename 回退某个文件
+
+
+
+2017.6.2    1)mac下 Maven的安装、配置；
+                1.下载Maven（https://maven.apache.org/download.cgi） 并解压到某个目录 例如/Users/robbie/apache-maven-3.3.3
+                2.配置Maven classpath ：
+                    在 vim ~/.bash_profile中 加入
+                      export M2_HOME=/Users/robbie/apache-maven-3.3.3
+                      export PATH=$PATH:$M2_HOME/bin
+                    输入命令使 bash_profile生效
+                      $ source ~/.bash_profile
+                    
+                3.输入mvn -v查看Maven是否安装成功
+                4.设置maven repository
+                  在maven安装目录下的conf里面有个settings.xml，搜索（localRepository），设置自己的repo（红色方框为新添加的自定义maven repository绝对路径）
+                  //<localRepository> /Users/robbie/Desktop/project/maven/repo </localRepository>
+                  
+                  
+            2)发布Android studio项目到本地Maven仓库、并在项目中引用本地仓库构件
+            
+              说明
+              android studio 中我们可以通过在gradle.build中添加配置来导入引用库，如：
+
+              compile 'com.kcode.github.pubutils:androidLib:0.0.1'
+              通过这个可以看出'com.kcode.github.pubutils:androidLib:0.0.1'由三部分组成，分别是Maven中的
+
+              <?xml version="1.0" encoding="UTF-8"?>
+              <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <modelVersion>4.0.0</modelVersion>
+                  <groupId>com.kcode.github.pubutils</groupId>
+                  <artifactId>androidLib</artifactId>
+                  <version>0.0.1</version>
+                  <packaging>aar</packaging>
+              </project>
+              groupId:唯一标识符
+              artifactId：类似于项目名称
+              version：版本号
+              现在我们来创建一个自己的本地库。
+
+              第一步
+
+               新建一个Android项目。在gradle.properties中添加一下信息
+
+                #包信息
+                GROUP_ID = com.kcode.github.pubutils
+
+                # Licence信息
+                PROJ_LICENCE_NAME=The Apache Software License, Version 2.0
+                PROJ_LICENCE_URL=http://www.apache.org/licenses/LICENSE-2.0.txt
+                PROJ_LICENCE_DEST=repo
+                GROUP_ID：就是刚才的groupId
+
+                下面的Licence信息是固定的
+
+              第二步
+
+                创建一个Libary,我命名为AndroidLib
+                在Libary的根目录下新建gradle.properties文件，添加
+
+                #包信息
+                ARTIFACTID = androidLib
+                LIBRARY_VERSION = 0.0.2
+
+                #Mac下地址:file:///Users/<username>/my/local/repo
+                LOCAL_REPO_URL=file:///Users/caik/my/local/repo
+                ARTIFACTID：开始说的到artifactId
+                LIBRARY_VERSION：版本号
+                LOCAL_REPO_URL：本地仓库的地址：file://+本地路径
+
+              第三步
+
+                在Library也就是刚才创建的AndroidLib下的gradle.build中添加
+
+                apply plugin: 'maven'
+
+                uploadArchives{
+                  repositories.mavenDeployer{
+                    repository(url:LOCAL_REPO_URL)
+                    pom.groupId = GROUP_ID
+                    pom.artifactId = ARTIFACTID
+                    pom.version = LIBRARY_VERSION
+                  }
+                 }
+              
+               第四步
+
+                最后在项目路径下执行：
+
+                ./gradlew -p <Library name> clean build uploadArchives --info
+                我这里就是：
+
+                 ./gradlew -p androidlib clean build uploadArchives --info
+                 等执行结束到刚才设置好的
+
+                  LOCAL_REPO_URL=file:///Users/caik/my/local/repo
+                  路径下就可以看到已经发布好的本次仓库
+
+                  第五步
+
+                  引用，先在最外层的gradle.build中添加本地maven库路径
+
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+                buildscript {
+                  repositories {
+                   jcenter()
+                  }
+                dependencies {
+                  classpath 'com.android.tools.build:gradle:2.1.0'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+                }
+              }
+
+              allprojects {
+                repositories {
+                  jcenter()
+
+                  maven {
+                    url 'file:///Users/caik/my/local/repo/'
+                  }
+                }
+              }
+
+
+            就是：
+
+            maven {
+              url 'file:///Users/caik/my/local/repo/'
+            }
+            然后在需要引用这个库的项目的gradle.build中添加：
+
+            compile 'com.kcode.github.pubutils:androidLib:0.0.2'
+            
+         3)Maven 包
+           Maven 仓库
+           发布包到本地仓库
+           发布包到 Bintray Jcenter 远程仓库
+           发布包到 Sonatype MavenCentral 远程仓库
+           搭建私有 Sonatype 仓库
+           搭建私有 Artifacotory 仓库
+           
+           
+           ***
+           拥抱 Android Studio 之四：Maven 仓库使用与私有仓库搭建（此人博客有大量android技术文章）
+           http://blog.csdn.net/chaoyue0071/article/details/50780469
+              
           
           
