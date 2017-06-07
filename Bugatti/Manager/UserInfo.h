@@ -37,18 +37,6 @@
 - (void)resetUserBehavior;
 - (void)collectUserBehaviorWithData:(NSDictionary *)data;
 @property (nonatomic) NSInteger dataLength;
-@property (nonatomic,strong,readonly) NSMutableDictionary *behaviorDict;
 
-
-
-
-
-
-
-
-
-
-
-
-
+@property (nonatomic,strong,readonly) NSString *behaviorStr;
 @end

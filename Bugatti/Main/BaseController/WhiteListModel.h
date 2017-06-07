@@ -10,5 +10,13 @@
 
 @interface WhiteListModel : NSObject
 
+
+
+/**
+ 用户行为统计需要的 页面id
+
+ @param name 当前类名
+ @return 当前类名对应的id
+ */
 + (NSInteger)getPageIDWithClassName:(NSString *)name;
 @end

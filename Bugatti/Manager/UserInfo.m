@@ -12,6 +12,7 @@
 
 
 @property (nonatomic,strong) NSMutableArray *userBehaviors;
+
 @end
 
 @implementation UserInfo{
@@ -35,7 +36,8 @@
     //比如如果10k发送一次行为数据的话 每次行为数据大概 30byte    10k／30b = 340
     
     self.dataLength += [self convertToJsonData:data].length;
-    NSLog(@"collectUserBehaviorWithData:%@  dataLength:%ld",self.behaviorDict,self.dataLength);
+//    NSLog(@"string:%@",[self convertToJsonData:data]);
+//    NSLog(@"collectUserBehaviorWithData:%@  dataLength:%ld",self.behaviorDict,self.dataLength);
     
 }
 
@@ -111,11 +113,9 @@
 
 #pragma mark - set get
 
-
-
 - (NSMutableArray *)userBehaviors{
     if(!_userBehaviors){
-        _userBehaviors = [[NSMutableArray alloc]initWithCapacity:0];
+        _userBehaviors = [[NSMutableArray alloc] initWithCapacity:0];
     }
     return _userBehaviors;
 }
@@ -135,16 +135,14 @@
  ]
  };
  */
-- (NSMutableDictionary *)behaviorDict{
-    if(!_behaviorDict){
-        _behaviorDict = [[NSMutableDictionary alloc]initWithCapacity:0];
-    }
-    
+
+- (NSString *)behaviorStr{
+    NSMutableDictionary *behaviorDict = [[NSMutableDictionary alloc]initWithCapacity:0];
 #warning user_id为测试
-    [_behaviorDict setObject:@"10002" forKey:@"u"];
-    [_behaviorDict setObject:self.userBehaviors forKey:@"b"];
-    
-    return _behaviorDict;
+    [behaviorDict setObject:@"10002" forKey:@"u"];
+    [behaviorDict setObject:self.userBehaviors forKey:@"bb"];
+    NSLog(@"用户行为收集:%@", [self convertToJsonData:behaviorDict]);
+    return [self convertToJsonData:behaviorDict];
 }
 
 - (void)setUserToken:(NSString *)userToken{

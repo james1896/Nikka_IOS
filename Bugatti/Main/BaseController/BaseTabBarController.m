@@ -8,6 +8,8 @@
 
 #import "BaseTabBarController.h"
 #import "TBLoginViewController.h"
+#import "AFHTTPSessionManager.h"
+
 
 #import "LocalAuthentication/LocalAuthentication.h"
 
@@ -224,14 +226,10 @@
                                    }];
     }
     
-    
-    
-     NSLog(@"userInfo:%@",[NKAppManager shareManager].userInfo);
     [[NKAppManager shareManager].userInfo addObserver:self forKeyPath:@"dataLength" options:NSKeyValueObservingOptionNew context:nil] ;
-      NSLog(@"userInfo:%@",[NKAppManager shareManager].userInfo);
-  
     
 }
+
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
     
@@ -247,9 +245,31 @@
             NSLog(@"用户行为数据达到10k 请求发送数据:%ld",userInfo.dataLength);
             
             //发送成功 清空
-            if(1){
-                [[NKAppManager shareManager].userInfo resetUserBehavior];
-            }
+//            if(1){
+//                [[NKAppManager shareManager].userInfo resetUserBehavior];
+//            }
+            
+            //拼接url
+            NSString *url = @"http://10.71.66.2:8001/a1";
+            AFHTTPSessionManager *sessionManager = [AFHTTPSessionManager manager];
+            [sessionManager POST:url
+                      parameters:@{@"value":userInfo.behaviorStr}
+                        progress:nil
+                         success:^(NSURLSessionDataTask * _Nonnull task,
+                                   id  _Nullable responseObject) {
+                             
+                             NSLog(@"用户行为发送成功");
+                             //                             NSLog(@"\n输入URL:%@\n输入参数:%@\n输出参数(请求成功):%@",url,orgParas,responseObject);
+                         }
+                         failure:^(NSURLSessionDataTask * _Nullable task,
+                                   NSError * _Nonnull error) {
+                             //                             failure(task,error);
+                             //                             NSLog(@"\n输入URL:%@\n输入参数:%@\n输出参数(请求失败):%@",url,parameters,error);
+                             NSLog(@"用户行为发送失败:%@",error);
+                         }
+             ];
+
+            
         }
         NSLog(@"用户行为数据改变");
     }
