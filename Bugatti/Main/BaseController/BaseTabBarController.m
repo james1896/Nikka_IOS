@@ -259,12 +259,9 @@
                                    id  _Nullable responseObject) {
                              
                              NSLog(@"用户行为发送成功");
-                             //                             NSLog(@"\n输入URL:%@\n输入参数:%@\n输出参数(请求成功):%@",url,orgParas,responseObject);
                          }
                          failure:^(NSURLSessionDataTask * _Nullable task,
                                    NSError * _Nonnull error) {
-                             //                             failure(task,error);
-                             //                             NSLog(@"\n输入URL:%@\n输入参数:%@\n输出参数(请求失败):%@",url,parameters,error);
                              NSLog(@"用户行为发送失败:%@",error);
                          }
              ];

@@ -56,6 +56,7 @@
 {
         [[AFNetworkReachabilityManager sharedManager] stopMonitoring];
 }
+
 - (NSString *)version{
     
     return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
