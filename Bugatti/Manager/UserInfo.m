@@ -8,6 +8,7 @@
 
 #import "UserInfo.h"
 
+static NSString *userBehaviorPath = @"userBehavior.json";
 @interface UserInfo()
 
 
@@ -15,14 +16,50 @@
 
 @end
 
-@implementation UserInfo{
+@implementation UserInfo {
     
     //用户行为统计
-    NSMutableDictionary * _behaviorDict;
     NSInteger _dataLength;
+    NSString *_behaviorStr;
+    
 }
 
 #pragma mark - 公开接口
+- (NSString *)getHomeDirectoryPath{
+    return NSHomeDirectory();
+}
+
+- (NSString *)getDocumentsPath{
+    //获取Documents路径
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *path = [paths objectAtIndex:0];
+    return path;
+}
+
+- (NSString *)getLibraryPath{
+    //获取Library路径
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
+    NSString *path = [paths objectAtIndex:0];
+    return path;
+}
+
+- (NSString *)getCachesPath{
+    //获取Caches路径
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *path = [paths objectAtIndex:0];
+    return path;
+}
+
+- (NSString *)getTemporatyPath{
+    return NSTemporaryDirectory();
+}
+
+- (void)saveUserBehavior{
+    if(self.userBehaviors.count > 0){
+       BOOL result = [self.userBehaviors writeToFile:[NSString stringWithFormat:@"%@/%@",[self getDocumentsPath],userBehaviorPath] atomically:YES];
+    }
+    
+}
 
 - (void)collectUserBehaviorWithData:(NSDictionary *)data{
     
@@ -43,7 +80,7 @@
 
 - (void)resetUserBehavior{
     self.userBehaviors = nil;
-    _behaviorDict = nil;
+    _behaviorStr = nil;
     _dataLength = 0;
 }
 
@@ -115,7 +152,10 @@
 
 - (NSMutableArray *)userBehaviors{
     if(!_userBehaviors){
-        _userBehaviors = [[NSMutableArray alloc] initWithCapacity:0];
+        _userBehaviors = [[NSMutableArray alloc] initWithContentsOfFile:[NSString stringWithFormat:@"%@/%@",[self getDocumentsPath],userBehaviorPath]];
+        NSLog(@"_userBehaviors:%@",_userBehaviors);
+        if(!_userBehaviors)
+            _userBehaviors = [[NSMutableArray alloc] initWithCapacity:0];
     }
     return _userBehaviors;
 }
@@ -208,25 +248,56 @@
 
 #pragma mark lift cycle
 
-static UserInfo * _instance = nil;
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+      
+    }
+    return self;
+}
 
-+ (instancetype)shareManager{
-    static dispatch_once_t onceToken ;
+- (void)dealloc
+{
+    
+}
+// 创建静态对象 防止外部访问
+static UserInfo *_instance;
+
++(instancetype)allocWithZone:(struct _NSZone *)zone
+{
+    //    @synchronized (self) {
+    //        // 为了防止多线程同时访问对象，造成多次分配内存空间，所以要加上线程锁
+    //        if (_instance == nil) {
+    //            _instance = [super allocWithZone:zone];
+    //        }
+    //        return _instance;
+    //    }
+    // 也可以使用一次性代码
+    static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _instance = [[super allocWithZone:NULL] init];
-    }) ;
-    return _instance ;
+        if (_instance == nil) {
+            _instance = [super allocWithZone:zone];
+        }
+    });
+    return _instance;
+}
+// 为了使实例易于外界访问 我们一般提供一个类方法
+// 类方法命名规范 share类名|default类名|类名
++(instancetype)shareUserInfo {
+    //return _instance;
+    // 最好用self 用Tools他的子类调用时会出现错误
+    return [[self alloc]init];
 }
 
-
-+ (id) allocWithZone:(struct _NSZone *)zone
+// 为了严谨，也要重写copyWithZone 和 mutableCopyWithZone
+-(id)copyWithZone:(NSZone *)zone
 {
-    return [UserInfo shareManager] ;
+    return _instance;
 }
-
-- (id) copyWithZone:(struct _NSZone *)zone
+-(id)mutableCopyWithZone:(NSZone *)zone
 {
-    return [UserInfo shareManager] ;
+    return _instance;
 }
 
 @end

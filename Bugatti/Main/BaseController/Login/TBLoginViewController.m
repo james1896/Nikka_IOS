@@ -37,7 +37,7 @@
     button.frame = frame;
     button.layer.borderWidth = 1;
     button.layer.borderColor = COLOR(182, 184,189, 1).CGColor;
-    button.font = [UIFont systemFontOfSize:17];
+    button.titleLabel.font = [UIFont systemFontOfSize:17];
     [button setTitleColor:COLOR(236, 236,236, 1) forState:UIControlStateNormal];
     return button;
 }
@@ -94,7 +94,7 @@
         button.frame = CGRectMake(self.password.left, self.password.bottom+30, self.password.width, 50);;
         button.layer.borderWidth = 1;
         button.layer.borderColor = COLOR(182, 184,189, 1).CGColor;
-        button.font = [UIFont systemFontOfSize:17];
+        button.titleLabel.font = [UIFont systemFontOfSize:17];
         [button setTitleColor:COLOR(236, 236,236, 1) forState:UIControlStateNormal];
         [button addTarget:self.loginController action:@selector(loginButonPress:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:button];
@@ -189,7 +189,7 @@
         button.frame = CGRectMake(self.password.left, self.password.bottom+30, self.password.width, 50);;
         button.layer.borderWidth = 1;
         button.layer.borderColor = COLOR(182, 184,189, 1).CGColor;
-        button.font = [UIFont systemFontOfSize:17];
+        button.titleLabel.font = [UIFont systemFontOfSize:17];
         [button addTarget:self.loginController action:@selector(registerButtonPress:) forControlEvents:UIControlEventTouchUpInside];
         [button setTitleColor:COLOR(236, 236,236, 1) forState:UIControlStateNormal];
         [self addSubview:button];
@@ -440,7 +440,7 @@
     button.frame = frame;
     button.layer.borderWidth = 1;
     button.layer.borderColor = COLOR(182, 184,189, 1).CGColor;
-    button.font = [UIFont systemFontOfSize:17];
+    button.titleLabel.font = [UIFont systemFontOfSize:17];
     [button setTitleColor:COLOR(236, 236,236, 1) forState:UIControlStateNormal];
     return button;
 }

@@ -18,9 +18,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
-    
-    
+
  
     ////////////////////////////////////////////////////////////////////////////
 //    [[UserDataManager shareManager].deviceInfo getIPAddress:NO];
@@ -36,7 +34,7 @@
     
     //在App没有运行的情况下，系统收到推送消息，用户点击推送消息
     NSDictionary *userInfo =[launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
-    NSLog(@"userInfo:%@",userInfo);
+//    NSLog(@"userInfo:%@",userInfo);
     //    NSLog(@"在App没有运行的情况下，系统收到推送消息，用户点击推送消息 : %@",userInfo);
     [[NKAppManager shareManager] notificationManager].notificationType = NotificationManagerTypeRemoteNotificationOnExit;
     [[[NKAppManager shareManager] notificationManager] handleNotificationUserInfo:userInfo];
@@ -78,6 +76,7 @@
     [[NKAppManager shareManager] notificationManager].notificationType = NotificationManagerTypeRemoteNotificationOnActive;
     [[[NKAppManager shareManager] notificationManager] handleNotificationUserInfo:userInfo];
     
+  
 }
 
 
@@ -107,6 +106,7 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    [[NKAppManager shareManager].userInfo saveUserBehavior];
 }
 
 /**

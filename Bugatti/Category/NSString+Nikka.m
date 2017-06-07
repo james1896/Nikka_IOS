@@ -38,8 +38,7 @@
     if(((self == nil) ||
         [self isKindOfClass:[NSNull class]]||
         ![self isKindOfClass:[NSString class]])||
-       [self isEqualToString:@""] ||
-       [self isEqualToString:@""] ||
+       [self isEqualToString:@""]||
        [[self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] length]==0){
         
         return YES;

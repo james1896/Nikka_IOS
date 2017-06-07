@@ -17,7 +17,7 @@
     NSString *_userPhone;
 }
 
-+ (instancetype)shareManager;
++ (instancetype)shareUserInfo;
 @property (nonatomic,readonly)   BOOL isLogin;
 
 /**
@@ -34,6 +34,8 @@
 
 //用户行为统计
 //用户行为收集
+
+- (void)saveUserBehavior;
 - (void)resetUserBehavior;
 - (void)collectUserBehaviorWithData:(NSDictionary *)data;
 @property (nonatomic) NSInteger dataLength;
