@@ -9,6 +9,7 @@
 #import "BaseViewController.h"
 
 #import "NextViewController.h"
+#import "WhiteListModel.h"
 
 
 
@@ -109,6 +110,14 @@
 
 @property (nonatomic,strong) UIImageView *backgroundImageView;
 
+
+//用户行为统计
+
+@property (nonatomic,strong) NSMutableArray *userBehaviors;
+@property (nonatomic)        double begin_time;
+
+
+
 @end
 
 @implementation BaseViewController
@@ -165,16 +174,29 @@
 
 #pragma mark SET GET 方法
 
+
+- (NSMutableArray *)userBehaviors{
+    if(!_userBehaviors){
+        _userBehaviors = [[NSMutableArray alloc]initWithCapacity:0];
+    }
+    return _userBehaviors;
+}
+
+
+- (NSInteger)pageID{
+    return [WhiteListModel getPageIDWithClassName:NSStringFromClass([self class])];
+}
+
 - (void)setNavbarBackgroundColor:(UIColor *)navbarBackgroundColor{
     self.navbarView.backgroundColor = navbarBackgroundColor;
 }
-- (UserDataManager *)dataManager{
-    return [UserDataManager shareManager];
+- (NKAppManager *)dataManager{
+    return [NKAppManager shareManager];
 }
 
-- (UserManager *)userData{
+- (UserInfo *)userInfo{
     
-    return [UserDataManager shareManager].userManager;
+    return [NKAppManager shareManager].userInfo;
 }
 
 - (void)setTitleColor:(UIColor *)titleColor{
@@ -248,8 +270,62 @@
 }
 
 #pragma mark - lift cycle
+
+//
+- (void)logAtViewDidAppear{
+    
+    self.begin_time = [APPUtils getCurrentDate];
+    
+    //开始时间为空  数据异常
+    if(self.begin_time == 0){
+        
+        return;
+    }
+    
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc]initWithCapacity:0];
+    [dict setObject:@(self.pageID) forKey:@"f"];
+    [dict setObject:[NSNumber numberWithDouble:self.begin_time] forKey:@"b"];
+    
+    [self.userBehaviors addObject:dict];
+}
+
+- (void)logAtViewDidDisappear{
+    
+    //开始时间为空  数据异常
+    if(self.begin_time == 0 && ([APPUtils getCurrentDate] - self.begin_time) > 0){
+       
+        return;
+    }
+    
+    NSMutableDictionary *dict = [self.userBehaviors lastObject];
+    NSNumber *duration = [NSNumber numberWithDouble:[APPUtils getCurrentDate] - self.begin_time];
+    [dict setObject:duration forKey:@"d"];
+    
+    //行为数据 保存到 userManager
+    [self.userInfo collectUserBehaviorWithData:dict];
+    [self.userBehaviors removeLastObject];
+    
+    
+//    //更新最后一条数据
+//    [self.userBehaviors replaceObjectAtIndex:self.userBehaviors.count-1 withObject:dict];
+}
+
+
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+    [self logAtViewDidAppear];
+}
+
+- (void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    [self logAtViewDidDisappear];
 }
 
 - (void)viewDidLoad {

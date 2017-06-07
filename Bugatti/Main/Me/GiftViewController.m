@@ -73,7 +73,7 @@ typedef enum {
     self.userName.text = @"";
     self.content.text = @"";
     self.availablePointsLab.text = [NSString stringWithFormat:@"可用积分:%.2f",
-                                    [UserDataManager shareManager].userManager.moneyPoints];
+                                    [NKAppManager shareManager].userInfo.moneyPoints];
 }
 
 - (UILabel *)availablePointsLab{
@@ -179,14 +179,14 @@ typedef enum {
 - (void)pointBtnPress:(UIButton *)sender {
     
     NSInteger points = [self.pointView.content.text intValue];
-    [TBRuquestManager transformPointWithUserID:self.userData.user_id
+    [TBRuquestManager transformPointWithUserID:self.userInfo.user_id
                                     friendName:self.pointView.userName.text
                                          point:points
                                        success:^(NSURLSessionDataTask *task, id responseObject) {
                                            
                                            
                                            if([responseObject isTrueCode]){
-                                               self.userData.moneyPoints = self.userData.moneyPoints - points;
+                                               self.userInfo.moneyPoints = self.userInfo.moneyPoints - points;
                                                
                                                
                                                [self.pointView removeFromSuperview];

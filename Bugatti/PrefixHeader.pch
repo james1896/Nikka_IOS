@@ -26,7 +26,8 @@
 #import "Masonry.h"
 
 #import "TBRuquestManager.h"
-#import "UserDataManager.h"
+#import "NKAppManager.h"
+
 #import "TBToastView.h"
 #import "APPUtils.h"
 

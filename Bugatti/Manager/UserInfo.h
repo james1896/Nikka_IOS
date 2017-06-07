@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface UserManager : NSObject{
+@interface UserInfo : NSObject{
     CGFloat _moneyPoints;
     NSString *_password;
     NSString *_user_id;
@@ -17,8 +17,8 @@
     NSString *_userPhone;
 }
 
-
-@property (nonatomic,readonly)              BOOL isLogin;
++ (instancetype)shareManager;
+@property (nonatomic,readonly)   BOOL isLogin;
 
 /**
  用户用户名 密码 用户token
@@ -32,7 +32,23 @@
 @property (nonatomic,copy)          NSString *userPhone;
 
 
+//用户行为统计
+//用户行为收集
+- (void)resetUserBehavior;
+- (void)collectUserBehaviorWithData:(NSDictionary *)data;
+@property (nonatomic) NSInteger dataLength;
+@property (nonatomic,strong,readonly) NSMutableDictionary *behaviorDict;
 
-+ (instancetype)shareManager;
+
+
+
+
+
+
+
+
+
+
+
 
 @end

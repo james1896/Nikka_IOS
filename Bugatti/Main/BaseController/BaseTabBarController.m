@@ -8,7 +8,7 @@
 
 #import "BaseTabBarController.h"
 #import "TBLoginViewController.h"
-#import "AFNetworkReachabilityManager.h"
+
 #import "LocalAuthentication/LocalAuthentication.h"
 
 @interface BaseTabBarController ()<UITabBarControllerDelegate,TBLoginViewControllerDelegate>
@@ -43,7 +43,7 @@
 - (void)showLoginControllerWithDesiredController:(UIViewController *)controller{
     self.desiredController = nil;
     
-    if([UserDataManager shareManager].isLogin){
+    if([NKAppManager shareManager].isLogin){
         [self.navigationController pushViewController:controller animated:YES];
     }else{
         self.desiredController = controller;
@@ -203,16 +203,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    NSLog(@"version:%@",[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]);
-//    这里需要添加version字段
+   
+#warning   这里需要添加version字段
     if([APPUtils isIntradayWithLastTime:[[NSUserDefaults standardUserDefaults]
                                          doubleForKey:NIKKA_USERINFO_REQUEST_TIME]]){
     
         
-        [TBRuquestManager userInfoWithUUID:[[UserDataManager shareManager].deviceInfo getUUID]
+        [TBRuquestManager userInfoWithUUID:[[NKAppManager shareManager].deviceInfo getUUID]
                                     device:[APPUtils getDeviceModel]
                                   lastTime:@""
-                                  userName:[UserDataManager shareManager].userManager.userName
+                                  userName:[NKAppManager shareManager].userInfo.userName
                                    success:^(NSURLSessionDataTask *task, id responseObject) {
                                        
                                        
@@ -226,36 +226,40 @@
     
     
     
-    //AFNetworking 检测网络变化
-//    self.manager = [AFNetworkReachabilityManager sharedManager];
-    AFNetworkReachabilityManager *manager = [AFNetworkReachabilityManager sharedManager];
-    [manager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
-        //当网络状态发生变化时会调用这个block
-        switch (status) {
-            case AFNetworkReachabilityStatusReachableViaWiFi:
-                NSLog(@"WiFi");
-                break;
-            case AFNetworkReachabilityStatusReachableViaWWAN:
-                NSLog(@"手机网络");
-                break;
-            case AFNetworkReachabilityStatusNotReachable:
-                NSLog(@"没有网络");
-                break;
-            case AFNetworkReachabilityStatusUnknown:
-                NSLog(@"未知网络");
-                break;
-                
-            default:
-                break;
-        }
-    }];
-    [manager startMonitoring];
+     NSLog(@"userInfo:%@",[NKAppManager shareManager].userInfo);
+    [[NKAppManager shareManager].userInfo addObserver:self forKeyPath:@"dataLength" options:NSKeyValueObservingOptionNew context:nil] ;
+      NSLog(@"userInfo:%@",[NKAppManager shareManager].userInfo);
+  
     
 }
 
-- (void)dealloc
-{
-    [[AFNetworkReachabilityManager sharedManager] stopMonitoring];
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
+    
+//    NSLog(@"keyPath:%@ object:%@ change：%@ context：%@",keyPath,object,change,context);
+    //观察 dataLength 值
+    //datalength 用于用户数据发送
+    if([keyPath isEqualToString:@"dataLength"]){
+        UserInfo *userInfo = (UserInfo *)object;
+        
+        //    用户行为数据  只有 wifi环境下才发送数据
+        if (userInfo.dataLength > byte_10_K && [NKAppManager shareManager].envInfo.netWorkType == NKNetWorkTypeWIFI){
+            //每次操作大概消耗 30个byte 10k大概操作 340次
+            NSLog(@"用户行为数据达到10k 请求发送数据:%ld",userInfo.dataLength);
+            
+            //发送成功 清空
+            if(1){
+                [[NKAppManager shareManager].userInfo resetUserBehavior];
+            }
+        }
+        NSLog(@"用户行为数据改变");
+    }
+    
+    NSLog(@"KVO");
+}
+
+- (void)dealloc {
+    
+    [[NKAppManager shareManager].userInfo removeObserver:self forKeyPath:@"dataLength" context:nil];
 }
 
 -(UIImage*) createImageWithColor:(UIColor*) color

@@ -57,8 +57,8 @@
 
 - (CashierDesk *)cashierDesk{
     if(!_cashierDesk){
-        NSLog(@"cash:%.2f",self.userData.moneyPoints);
-        _cashierDesk = [[CashierDesk alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH-25*2, 50) point:self.userData.moneyPoints];
+        NSLog(@"cash:%.2f",self.userInfo.moneyPoints);
+        _cashierDesk = [[CashierDesk alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH-25*2, 50) point:self.userInfo.moneyPoints];
     }
    
     return _cashierDesk;
@@ -67,7 +67,7 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
-    [self.cashierDesk updateCashierDesk:self.userData.moneyPoints];
+    [self.cashierDesk updateCashierDesk:self.userInfo.moneyPoints];
     
     NSLog(@"gridController:%@",self.navigationController);
 }
@@ -161,15 +161,15 @@
         if(flag == 0){
         //＋＋
 
-            if(self.userData.moneyPoints >= price){
-                self.userData.moneyPoints -= price;
-                   [self.cashierDesk updateCashierDesk:self.userData.moneyPoints];
+            if(self.userInfo.moneyPoints >= price){
+                self.userInfo.moneyPoints -= price;
+                   [self.cashierDesk updateCashierDesk:self.userInfo.moneyPoints];
                 return 0;
             }
         }else{
         //---
-            self.userData.moneyPoints += price;
-               [self.cashierDesk updateCashierDesk:self.userData.moneyPoints];
+            self.userInfo.moneyPoints += price;
+               [self.cashierDesk updateCashierDesk:self.userInfo.moneyPoints];
             return 1;
         }
         return -1;

@@ -19,12 +19,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    
+    
+ 
     ////////////////////////////////////////////////////////////////////////////
 //    [[UserDataManager shareManager].deviceInfo getIPAddress:NO];
     
     //远程推送
     
-    [[[UserDataManager shareManager] notificationManager] registerRemoteNotification];
+    [[[NKAppManager shareManager] notificationManager] registerRemoteNotification];
     ///////////////////////////////////////////////////////////////////////////////////
     //本地推送
     
@@ -35,8 +38,8 @@
     NSDictionary *userInfo =[launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
     NSLog(@"userInfo:%@",userInfo);
     //    NSLog(@"在App没有运行的情况下，系统收到推送消息，用户点击推送消息 : %@",userInfo);
-    [[UserDataManager shareManager] notificationManager].notificationType = NotificationManagerTypeRemoteNotificationOnExit;
-    [[[UserDataManager shareManager] notificationManager] handleNotificationUserInfo:userInfo];
+    [[NKAppManager shareManager] notificationManager].notificationType = NotificationManagerTypeRemoteNotificationOnExit;
+    [[[NKAppManager shareManager] notificationManager] handleNotificationUserInfo:userInfo];
     
    
     return YES;
@@ -50,7 +53,7 @@
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{
     
 
-    [[[UserDataManager shareManager] notificationManager] saveRemoteNotificationDeviceToken:deviceToken];
+    [[[NKAppManager shareManager] notificationManager] saveRemoteNotificationDeviceToken:deviceToken];
 }
 
 - (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings{
@@ -72,8 +75,8 @@
 //applicationDidBecomeActive
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
     NSLog(@"当APP处于前台时，系统收到推送消息，此时系统不会弹出消息提示，会直接触发 : %@",userInfo);
-    [[UserDataManager shareManager] notificationManager].notificationType = NotificationManagerTypeRemoteNotificationOnActive;
-    [[[UserDataManager shareManager] notificationManager] handleNotificationUserInfo:userInfo];
+    [[NKAppManager shareManager] notificationManager].notificationType = NotificationManagerTypeRemoteNotificationOnActive;
+    [[[NKAppManager shareManager] notificationManager] handleNotificationUserInfo:userInfo];
     
 }
 

@@ -11,7 +11,7 @@
 #import "BaseTabBarController.h"
 #import "BaseNavigationController.h"
 
-@class UserManager,UserDataManager;
+@class UserInfo,NKAppManager;
 
 typedef enum {
     NavTitleAlignmentLeft,
@@ -22,13 +22,17 @@ typedef enum {
 @interface BaseViewController : UIViewController
 
 @property (nonatomic,strong) ThemeSprite    *sprite;
-@property (nonatomic,strong) UserDataManager *dataManager;
-@property (nonatomic,strong) UserManager *userData;
+
+@property (nonatomic,strong) NKAppManager *dataManager;
+@property (nonatomic,strong) UserInfo *userInfo;
 
 
 
 @property (nonatomic,copy) NSString         *titleName;
 @property (nonatomic,copy) NSString         *subtitleName;
+
+//页面ID 用户行为统计使用
+@property (nonatomic,readonly) NSInteger pageID;
 
 @property (nonatomic,strong) UIColor        *titleColor;
 @property (nonatomic) NavTitleAlignment     titleAlignment;

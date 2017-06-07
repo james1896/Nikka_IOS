@@ -103,7 +103,7 @@
     img.layer.borderWidth = 2;
     
     //    self.name = [UILabel new];
-    //    self.name.text = ([UserDataManager shareManager].userName == NULL?@"June":[UserDataManager shareManager].userName);
+    //    self.name.text = ([userInfoManager shareManager].userName == NULL?@"June":[userInfoManager shareManager].userName);
     //    self.name.font = [UIFont boldSystemFontOfSize:18];
     //    [_headerView addSubview:self.name];
     //    [self.name mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -166,11 +166,11 @@
     
     if(indexPath.row == self.dataArray.count-1){
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:
-                                              self.userData.userName message:@"你确定要退出当前账号吗?" preferredStyle:UIAlertControllerStyleAlert];
+                                              self.userInfo.userName message:@"你确定要退出当前账号吗?" preferredStyle:UIAlertControllerStyleAlert];
         
         UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
         UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-            [self.dataManager resetUserData];
+            [self.dataManager resetUserInfo];
             //            tableView.tableHeaderView = self.headerView;
             self.subtitleName = @"";
             self.jifenLab.text = @"";
@@ -247,11 +247,10 @@
     [super viewWillAppear:animated];
     
     
-    
     if(self.dataManager.isLogin){
         
         
-        [TBRuquestManager updatePointsWithUserID:self.userData.user_id
+        [TBRuquestManager updatePointsWithUserID:self.userInfo.user_id
                                         positive:0
                                         negative:0
                                          success:^(NSURLSessionDataTask *task,
@@ -260,8 +259,8 @@
                                              if([responseObject dataFormatIsRight]){
                                                  
                                                  if([responseObject isTrueCode]){
-                                                     self.userData.moneyPoints = [[responseObject getPointsInData] floatValue];
-                                                     self.jifenLab.text = [NSString stringWithFormat:@"当前积分: %.2f",self.userData.moneyPoints];
+                                                     self.userInfo.moneyPoints = [[responseObject getPointsInData] floatValue];
+                                                     self.jifenLab.text = [NSString stringWithFormat:@"当前积分: %.2f",self.userInfo.moneyPoints];
                                                  }
                                              }
                                          }
@@ -271,8 +270,8 @@
                                          }
          ];
         
-        self.subtitleName = (self.userData.userName == NULL?@"":self.userData.userName);
-        self.jifenLab.text = [NSString stringWithFormat:@"当前积分: %.2f",self.userData.moneyPoints];
+        self.subtitleName = (self.userInfo.userName == NULL?@"":self.userInfo.userName);
+        self.jifenLab.text = [NSString stringWithFormat:@"当前积分: %.2f",self.userInfo.moneyPoints];
         [self.tabView reloadData];
         
     }

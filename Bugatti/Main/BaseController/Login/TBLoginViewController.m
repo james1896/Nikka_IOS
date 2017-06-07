@@ -353,7 +353,7 @@
     
     [TBRuquestManager loginWithName:name
                            password:pwd
-                               uuid:[[UserDataManager shareManager].deviceInfo getUUID]
+                               uuid:[[NKAppManager shareManager].deviceInfo getUUID]
                              device:[APPUtils getDeviceModel]
                             success:^(NSURLSessionDataTask *task, id responseObject) {
                                 
@@ -363,10 +363,10 @@
                                         [self.delegate loginSuccessedController:self];
                                     }
                                     
-                                    self.userData.userName = name;
-                                    self.userData.password = pwd;
-                                    self.userData.user_id = [responseObject getUserIDInData];
-                                    self.userData.moneyPoints = [[responseObject getPointsInData] floatValue];
+                                    self.userInfo.userName = name;
+                                    self.userInfo.password = pwd;
+                                    self.userInfo.user_id = [responseObject getUserIDInData];
+                                    self.userInfo.moneyPoints = [[responseObject getPointsInData] floatValue];
                                     
                                 }
                                 
@@ -396,7 +396,7 @@
     
     [TBRuquestManager registerWithName:name
                               password:pwd
-                                  uuid:[[UserDataManager shareManager].deviceInfo getUUID]
+                                  uuid:[[NKAppManager shareManager].deviceInfo getUUID]
                                 device:[APPUtils getDeviceModel]
                                success:^(NSURLSessionDataTask *task, id responseObject) {
                                    
@@ -410,10 +410,10 @@
                                                [self.delegate loginSuccessedController:self];
                                            }
                                            
-                                           self.userData.userName = name;
-                                           self.userData.password = pwd;
-                                           self.userData.user_id = [responseObject getUserIDInData];
-                                           self.userData.moneyPoints = [[responseObject getPointsInData] floatValue];
+                                           self.userInfo.userName = name;
+                                           self.userInfo.password = pwd;
+                                           self.userInfo.user_id = [responseObject getUserIDInData];
+                                           self.userInfo.moneyPoints = [[responseObject getPointsInData] floatValue];
                                            
                                        }else if ([[responseObject getStatusCodeInData] isEqualToNumber: @(4001)]){
                                            

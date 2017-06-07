@@ -35,7 +35,7 @@
     //将字符串转换成NSData
     
 
-    NSData *data=[[NSString stringWithFormat:@"%s",getSerialWithUid([self.userData.user_id intValue])] dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *data=[[NSString stringWithFormat:@"%s",getSerialWithUid([self.userInfo.user_id intValue])] dataUsingEncoding:NSUTF8StringEncoding];
 
     //通过KVO设置滤镜inputmessage数据
     
@@ -192,7 +192,7 @@
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
 
-    [[UserDataManager shareManager].deviceInfo setScreenBrightness:self.currentLight];
+    [[NKAppManager shareManager].deviceInfo setScreenBrightness:self.currentLight];
 }
 
 - (void)viewDidDisappear:(BOOL)animated{
