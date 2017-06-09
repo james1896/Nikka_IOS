@@ -240,7 +240,7 @@
         UserInfo *userInfo = (UserInfo *)object;
         
         //    用户行为数据  只有 wifi环境下才发送数据
-        if (userInfo.dataLength > byte_10_K && [NKAppManager shareManager].envInfo.netWorkType == NKNetWorkTypeWIFI){
+        if (userInfo.dataLength > byte_1_K && [NKAppManager shareManager].envInfo.netWorkType == NKNetWorkTypeWIFI){
             //每次操作大概消耗 30个byte 10k大概操作 340次
             NSLog(@"用户行为数据达到10k 请求发送数据:%ld",userInfo.dataLength);
             

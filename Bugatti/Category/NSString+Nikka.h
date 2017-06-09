@@ -11,6 +11,8 @@
 @interface NSString (Nikka)
 
 
+- (NSString *)stringToMD5;
+
 
 /**
  计算字符串的字节数（包括了中文和英文混合的）

@@ -177,6 +177,8 @@ static NSString *userBehaviorPath = @"userBehavior.json";
  */
 
 - (NSString *)behaviorStr{
+    NSLog(@"array:%@",self.userBehaviors);
+    
     NSMutableDictionary *behaviorDict = [[NSMutableDictionary alloc]initWithCapacity:0];
 #warning user_id为测试
     [behaviorDict setObject:@"10002" forKey:@"u"];

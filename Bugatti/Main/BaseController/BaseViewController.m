@@ -303,7 +303,8 @@
     
     //行为数据 保存到 userManager
     [self.userInfo collectUserBehaviorWithData:dict];
-    [self.userBehaviors removeLastObject];
+//    [self.userBehaviors removeLastObject];
+    self.userBehaviors = nil;
     
     
 //    //更新最后一条数据
