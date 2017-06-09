@@ -1,0 +1,93 @@
+
+
+
+
+
+
+
+
+
+3.反转数字  比如 123   =》  321
+			 -123 =》    -321
+
+
+    NSLog(@"reverse:%d",[self reverse:587]);
+
+-(int) reverse:(int) num {
+    int res=0;
+    while(num!=0){
+        res=res*10+num%10;
+        num/=10;
+    }
+    return res;
+}
+
+
+
+
+
+
+
+
+1.找出 独立存在的一个数字
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view, typically from a nib.
+     NSArray *array = @[@(1),@(1),@(2),@(7),@(2),@(3),@(4),@(4),@(5),@(5),@(6),@(6),@(3)];
+   
+    NSLog(@"%d",[self findOnluOneInArray:array]);
+}
+
+- (int)findOnluOneInArray:(NSArray<NSNumber *> *)array {
+   
+    
+    int result = 0;
+    for (int i = 0; i<array.count; ++i){
+        NSNumber *num = array[i];
+        result ^= [num integerValue];
+    }
+    
+    return result;
+}
+
+
+
+2. 从数组中找到 两个数之和等于 target的两个数在数组中的位置
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view, typically from a nib.
+    
+    NSArray *array = @[@(2),@(6),@(3),@(15),@(7)];
+    
+    NSLog(@"twoSum:%@",[self twoSumWith:array target:9]);
+    
+}
+
+- (NSArray *)twoSumWith:(NSArray *)nums target:(NSInteger)target{
+    NSMutableArray *marr = [[NSMutableArray alloc] initWithCapacity:2];
+    [marr addObject:@(-1)];
+    [marr addObject:@(-1)];
+    
+    NSInteger n2;
+    NSInteger idx;
+    NSMutableDictionary *mdict = [[NSMutableDictionary alloc]initWithCapacity:0];
+    for(int i=0;i<nums.count;i++){
+        [mdict setObject:@(i) forKey:nums[i]];
+    }
+    
+    NSLog(@"mdict:%@",mdict);
+    for(int i= 0; i < nums.count - 1;i++){
+        n2 = target - [nums[i] integerValue];
+        idx = [[mdict objectForKey:@(n2)]integerValue];
+        
+        if(idx != -1 && idx > i){
+            [marr replaceObjectAtIndex:0 withObject:@(i)];
+            [marr replaceObjectAtIndex:1 withObject:@(idx)];
+            break;
+        }
+    }
+    
+    return marr;
+}
