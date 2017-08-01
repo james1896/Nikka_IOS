@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A61378431EDFDFAA00360D7F /* AmaenboController.m in Sources */ = {isa = PBXBuildFile; fileRef = A61378421EDFDFAA00360D7F /* AmaenboController.m */; };
+		A613786C1EE001DB00360D7F /* ActivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A613786B1EE001DB00360D7F /* ActivityController.swift */; };
+		A613786F1EE015B900360D7F /* macroCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A613786E1EE015B900360D7F /* macroCommon.swift */; };
 		A6D468571EDE9821006375F6 /* grid_add.png in Resources */ = {isa = PBXBuildFile; fileRef = A6D468211EDE9821006375F6 /* grid_add.png */; };
 		A6D468581EDE9821006375F6 /* grid_sub.png in Resources */ = {isa = PBXBuildFile; fileRef = A6D468221EDE9821006375F6 /* grid_sub.png */; };
 		A6D468591EDE9821006375F6 /* GridCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D468241EDE9821006375F6 /* GridCollectionViewCell.m */; };
@@ -22,7 +25,6 @@
 		A6D468631EDE9821006375F6 /* img08.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = A6D4682F1EDE9821006375F6 /* img08.jpeg */; };
 		A6D468641EDE9821006375F6 /* img09.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = A6D468301EDE9821006375F6 /* img09.jpeg */; };
 		A6D468651EDE9821006375F6 /* img10.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = A6D468311EDE9821006375F6 /* img10.jpeg */; };
-		A6D468661EDE9821006375F6 /* AcitivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D468341EDE9821006375F6 /* AcitivityViewController.m */; };
 		A6D468671EDE9821006375F6 /* BalanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D468361EDE9821006375F6 /* BalanceViewController.m */; };
 		A6D468681EDE9821006375F6 /* dabenzhong.png in Resources */ = {isa = PBXBuildFile; fileRef = A6D468371EDE9821006375F6 /* dabenzhong.png */; };
 		A6D468691EDE9821006375F6 /* diwen.png in Resources */ = {isa = PBXBuildFile; fileRef = A6D468381EDE9821006375F6 /* diwen.png */; };
@@ -41,7 +43,7 @@
 		A6D468761EDE9821006375F6 /* MeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6D4684F1EDE9821006375F6 /* MeTableViewCell.xib */; };
 		A6D468771EDE9821006375F6 /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D468511EDE9821006375F6 /* MeViewController.m */; };
 		A6D468781EDE9821006375F6 /* ThankViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D468531EDE9821006375F6 /* ThankViewController.m */; };
-		A6D468791EDE9821006375F6 /* UserDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D468561EDE9821006375F6 /* UserDataManager.m */; };
+		A6D468791EDE9821006375F6 /* NKAppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D468561EDE9821006375F6 /* NKAppManager.m */; };
 		A6D468B31EDE988E006375F6 /* algorithm.c in Sources */ = {isa = PBXBuildFile; fileRef = A6D468B11EDE988E006375F6 /* algorithm.c */; };
 		A6D468B71EDE98BE006375F6 /* TBMessageSchudule.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D468B61EDE98BE006375F6 /* TBMessageSchudule.m */; };
 		A6D468DA1EDE9A3C006375F6 /* AlipayXiuYiXiuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D468BB1EDE9A3C006375F6 /* AlipayXiuYiXiuViewController.m */; };
@@ -58,8 +60,12 @@
 		A6D468E51EDE9A3C006375F6 /* PasswordTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D468D51EDE9A3C006375F6 /* PasswordTextField.m */; };
 		A6D468E61EDE9A3C006375F6 /* PasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D468D71EDE9A3C006375F6 /* PasswordViewController.m */; };
 		A6D468E71EDE9A3C006375F6 /* ThemeSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D468D91EDE9A3C006375F6 /* ThemeSprite.m */; };
-		A6D468EA1EDE9C5E006375F6 /* UserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D468E91EDE9C5E006375F6 /* UserManager.m */; };
-		DA06F7E91E8E701500D1907E /* NSString+Expand.m in Sources */ = {isa = PBXBuildFile; fileRef = DA06F7E81E8E701500D1907E /* NSString+Expand.m */; };
+		A6D468EA1EDE9C5E006375F6 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D468E91EDE9C5E006375F6 /* UserInfo.m */; };
+		A6EB29DD1EE6AEE4009196F6 /* WhiteListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A6EB29DC1EE6AEE4009196F6 /* WhiteListModel.m */; };
+		A6EB29E01EE78F1D009196F6 /* EnvInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A6EB29DF1EE78F1D009196F6 /* EnvInfo.m */; };
+		A6EB29E31EE7931A009196F6 /* DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A6EB29E21EE7931A009196F6 /* DeviceInfo.m */; };
+		A6EB2A611EEA8252009196F6 /* UIImage+Nikka.m in Sources */ = {isa = PBXBuildFile; fileRef = A6EB2A601EEA8252009196F6 /* UIImage+Nikka.m */; };
+		DA06F7E91E8E701500D1907E /* NSString+Nikka.m in Sources */ = {isa = PBXBuildFile; fileRef = DA06F7E81E8E701500D1907E /* NSString+Nikka.m */; };
 		DA0FF0B91E4C5FB000B56ED6 /* MacroDefinition.h in Sources */ = {isa = PBXBuildFile; fileRef = DA0FF0B81E4C5FB000B56ED6 /* MacroDefinition.h */; };
 		DA0FF0C81E4C65CF00B56ED6 /* UIView+Attribute.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0FF0C71E4C65CF00B56ED6 /* UIView+Attribute.m */; };
 		DA2A13C71E481B9A0096EAD4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2A13C61E481B9A0096EAD4 /* main.m */; };
@@ -85,6 +91,11 @@
 		3844C986A41315BF3C1E19C1 /* Pods-Bugatti.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bugatti.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bugatti/Pods-Bugatti.release.xcconfig"; sourceTree = "<group>"; };
 		66C34AB5C40D71348F220383 /* libPods-Bugatti.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Bugatti.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		97B9FF2D706EC04CC01F1613 /* Pods-Bugatti.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bugatti.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bugatti/Pods-Bugatti.debug.xcconfig"; sourceTree = "<group>"; };
+		A61378411EDFDFAA00360D7F /* AmaenboController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmaenboController.h; sourceTree = "<group>"; };
+		A61378421EDFDFAA00360D7F /* AmaenboController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmaenboController.m; sourceTree = "<group>"; };
+		A613786B1EE001DB00360D7F /* ActivityController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityController.swift; sourceTree = "<group>"; };
+		A613786D1EE0020500360D7F /* Bugatti-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bugatti-Bridging-Header.h"; sourceTree = "<group>"; };
+		A613786E1EE015B900360D7F /* macroCommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = macroCommon.swift; sourceTree = "<group>"; };
 		A6D468211EDE9821006375F6 /* grid_add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grid_add.png; sourceTree = "<group>"; };
 		A6D468221EDE9821006375F6 /* grid_sub.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grid_sub.png; sourceTree = "<group>"; };
 		A6D468231EDE9821006375F6 /* GridCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridCollectionViewCell.h; sourceTree = "<group>"; };
@@ -102,8 +113,6 @@
 		A6D4682F1EDE9821006375F6 /* img08.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img08.jpeg; sourceTree = "<group>"; };
 		A6D468301EDE9821006375F6 /* img09.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img09.jpeg; sourceTree = "<group>"; };
 		A6D468311EDE9821006375F6 /* img10.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img10.jpeg; sourceTree = "<group>"; };
-		A6D468331EDE9821006375F6 /* AcitivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AcitivityViewController.h; sourceTree = "<group>"; };
-		A6D468341EDE9821006375F6 /* AcitivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AcitivityViewController.m; sourceTree = "<group>"; };
 		A6D468351EDE9821006375F6 /* BalanceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BalanceViewController.h; sourceTree = "<group>"; };
 		A6D468361EDE9821006375F6 /* BalanceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BalanceViewController.m; sourceTree = "<group>"; };
 		A6D468371EDE9821006375F6 /* dabenzhong.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dabenzhong.png; sourceTree = "<group>"; };
@@ -134,8 +143,8 @@
 		A6D468511EDE9821006375F6 /* MeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeViewController.m; sourceTree = "<group>"; };
 		A6D468521EDE9821006375F6 /* ThankViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThankViewController.h; sourceTree = "<group>"; };
 		A6D468531EDE9821006375F6 /* ThankViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThankViewController.m; sourceTree = "<group>"; };
-		A6D468551EDE9821006375F6 /* UserDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDataManager.h; sourceTree = "<group>"; };
-		A6D468561EDE9821006375F6 /* UserDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDataManager.m; sourceTree = "<group>"; };
+		A6D468551EDE9821006375F6 /* NKAppManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NKAppManager.h; sourceTree = "<group>"; };
+		A6D468561EDE9821006375F6 /* NKAppManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NKAppManager.m; sourceTree = "<group>"; };
 		A6D468B11EDE988E006375F6 /* algorithm.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = algorithm.c; sourceTree = "<group>"; };
 		A6D468B21EDE988E006375F6 /* algorithm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = algorithm.h; sourceTree = "<group>"; };
 		A6D468B51EDE98BE006375F6 /* TBMessageSchudule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBMessageSchudule.h; sourceTree = "<group>"; };
@@ -167,11 +176,19 @@
 		A6D468D71EDE9A3C006375F6 /* PasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordViewController.m; sourceTree = "<group>"; };
 		A6D468D81EDE9A3C006375F6 /* ThemeSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeSprite.h; sourceTree = "<group>"; };
 		A6D468D91EDE9A3C006375F6 /* ThemeSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeSprite.m; sourceTree = "<group>"; };
-		A6D468E81EDE9C5E006375F6 /* UserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserManager.h; sourceTree = "<group>"; };
-		A6D468E91EDE9C5E006375F6 /* UserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserManager.m; sourceTree = "<group>"; };
-		DA06F7E71E8E701500D1907E /* NSString+Expand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Expand.h"; sourceTree = "<group>"; };
-		DA06F7E81E8E701500D1907E /* NSString+Expand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Expand.m"; sourceTree = "<group>"; };
-		DA0FF0B71E4C5F5E00B56ED6 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PrefixHeader.pch; path = ../PrefixHeader.pch; sourceTree = "<group>"; };
+		A6D468E81EDE9C5E006375F6 /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
+		A6D468E91EDE9C5E006375F6 /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
+		A6D468EB1EDEAA37006375F6 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		A6EB29DB1EE6AEE4009196F6 /* WhiteListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhiteListModel.h; sourceTree = "<group>"; };
+		A6EB29DC1EE6AEE4009196F6 /* WhiteListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhiteListModel.m; sourceTree = "<group>"; };
+		A6EB29DE1EE78F1D009196F6 /* EnvInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnvInfo.h; sourceTree = "<group>"; };
+		A6EB29DF1EE78F1D009196F6 /* EnvInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnvInfo.m; sourceTree = "<group>"; };
+		A6EB29E11EE7931A009196F6 /* DeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceInfo.h; sourceTree = "<group>"; };
+		A6EB29E21EE7931A009196F6 /* DeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceInfo.m; sourceTree = "<group>"; };
+		A6EB2A5F1EEA8252009196F6 /* UIImage+Nikka.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Nikka.h"; sourceTree = "<group>"; };
+		A6EB2A601EEA8252009196F6 /* UIImage+Nikka.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Nikka.m"; sourceTree = "<group>"; };
+		DA06F7E71E8E701500D1907E /* NSString+Nikka.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Nikka.h"; sourceTree = "<group>"; };
+		DA06F7E81E8E701500D1907E /* NSString+Nikka.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Nikka.m"; sourceTree = "<group>"; };
 		DA0FF0B81E4C5FB000B56ED6 /* MacroDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacroDefinition.h; sourceTree = "<group>"; };
 		DA0FF0C61E4C65CF00B56ED6 /* UIView+Attribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Attribute.h"; sourceTree = "<group>"; };
 		DA0FF0C71E4C65CF00B56ED6 /* UIView+Attribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Attribute.m"; sourceTree = "<group>"; };
@@ -262,8 +279,6 @@
 		A6D468321EDE9821006375F6 /* home */ = {
 			isa = PBXGroup;
 			children = (
-				A6D468331EDE9821006375F6 /* AcitivityViewController.h */,
-				A6D468341EDE9821006375F6 /* AcitivityViewController.m */,
 				A6D468351EDE9821006375F6 /* BalanceViewController.h */,
 				A6D468361EDE9821006375F6 /* BalanceViewController.m */,
 				A6D468371EDE9821006375F6 /* dabenzhong.png */,
@@ -275,6 +290,9 @@
 				A6D4683D1EDE9821006375F6 /* RecordTableViewCell.xib */,
 				A6D4683E1EDE9821006375F6 /* RecordViewController.h */,
 				A6D4683F1EDE9821006375F6 /* RecordViewController.m */,
+				A61378411EDFDFAA00360D7F /* AmaenboController.h */,
+				A61378421EDFDFAA00360D7F /* AmaenboController.m */,
+				A613786B1EE001DB00360D7F /* ActivityController.swift */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -308,10 +326,14 @@
 		A6D468541EDE9821006375F6 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				A6D468551EDE9821006375F6 /* UserDataManager.h */,
-				A6D468561EDE9821006375F6 /* UserDataManager.m */,
-				A6D468E81EDE9C5E006375F6 /* UserManager.h */,
-				A6D468E91EDE9C5E006375F6 /* UserManager.m */,
+				A6D468551EDE9821006375F6 /* NKAppManager.h */,
+				A6D468561EDE9821006375F6 /* NKAppManager.m */,
+				A6D468E81EDE9C5E006375F6 /* UserInfo.h */,
+				A6D468E91EDE9C5E006375F6 /* UserInfo.m */,
+				A6EB29DE1EE78F1D009196F6 /* EnvInfo.h */,
+				A6EB29DF1EE78F1D009196F6 /* EnvInfo.m */,
+				A6EB29E11EE7931A009196F6 /* DeviceInfo.h */,
+				A6EB29E21EE7931A009196F6 /* DeviceInfo.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -331,10 +353,12 @@
 				A6D468B91EDE9A3C006375F6 /* alipayAnimation */,
 				A6D468BC1EDE9A3C006375F6 /* BaseNavigationController.h */,
 				A6D468BD1EDE9A3C006375F6 /* BaseNavigationController.m */,
-				A6D468BE1EDE9A3C006375F6 /* BaseTabBarController.h */,
-				A6D468BF1EDE9A3C006375F6 /* BaseTabBarController.m */,
 				A6D468C01EDE9A3C006375F6 /* BaseViewController.h */,
 				A6D468C11EDE9A3C006375F6 /* BaseViewController.m */,
+				A6D468BE1EDE9A3C006375F6 /* BaseTabBarController.h */,
+				A6D468BF1EDE9A3C006375F6 /* BaseTabBarController.m */,
+				A6EB29DB1EE6AEE4009196F6 /* WhiteListModel.h */,
+				A6EB29DC1EE6AEE4009196F6 /* WhiteListModel.m */,
 				A6D468C21EDE9A3C006375F6 /* ControllerAnimation */,
 				A6D468C71EDE9A3C006375F6 /* localNotification */,
 				A6D468CA1EDE9A3C006375F6 /* Login */,
@@ -416,8 +440,8 @@
 				DAF8044E1E73A608009B11F0 /* UITextField+Expand.m */,
 				DA0FF0C61E4C65CF00B56ED6 /* UIView+Attribute.h */,
 				DA0FF0C71E4C65CF00B56ED6 /* UIView+Attribute.m */,
-				DA06F7E71E8E701500D1907E /* NSString+Expand.h */,
-				DA06F7E81E8E701500D1907E /* NSString+Expand.m */,
+				DA06F7E71E8E701500D1907E /* NSString+Nikka.h */,
+				DA06F7E81E8E701500D1907E /* NSString+Nikka.m */,
 				DAF293921EBC081900853E5C /* UIButton+NIKButton.h */,
 				DAF293931EBC081900853E5C /* UIButton+NIKButton.m */,
 				DAF2939A1EBC1B1400853E5C /* UIColor+NIKKA.h */,
@@ -426,6 +450,8 @@
 				DAF293A31EBC1E2A00853E5C /* UITableViewCell+NIKKA.m */,
 				DAFC3D8B1ECBE4BE00392DAE /* UILabel+nikka.h */,
 				DAFC3D8C1ECBE4BE00392DAE /* UILabel+nikka.m */,
+				A6EB2A5F1EEA8252009196F6 /* UIImage+Nikka.h */,
+				A6EB2A601EEA8252009196F6 /* UIImage+Nikka.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -455,6 +481,7 @@
 				DA2A13C91E481B9A0096EAD4 /* AppDelegate.m */,
 				DA2A13CE1E481B9A0096EAD4 /* Main.storyboard */,
 				DA0FF0B81E4C5FB000B56ED6 /* MacroDefinition.h */,
+				A613786E1EE015B900360D7F /* macroCommon.swift */,
 				A6D4681F1EDE9821006375F6 /* Main */,
 				A6D468541EDE9821006375F6 /* Manager */,
 				DA0FF0C51E4C65CF00B56ED6 /* Category */,
@@ -470,8 +497,9 @@
 		DA2A13C51E481B9A0096EAD4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A613786D1EE0020500360D7F /* Bugatti-Bridging-Header.h */,
+				A6D468EB1EDEAA37006375F6 /* PrefixHeader.pch */,
 				DAF804561E7415E9009B11F0 /* Bugatti.entitlements */,
-				DA0FF0B71E4C5F5E00B56ED6 /* PrefixHeader.pch */,
 				DA2A13C61E481B9A0096EAD4 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -568,7 +596,8 @@
 					DA2A13C11E481B9A0096EAD4 = {
 						CreatedOnToolsVersion = 8.2;
 						DevelopmentTeam = FJ8N4S5A53;
-						ProvisioningStyle = Manual;
+						LastSwiftMigration = 0820;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
@@ -683,20 +712,25 @@
 			files = (
 				A6D468E71EDE9A3C006375F6 /* ThemeSprite.m in Sources */,
 				DAF293A41EBC1E2A00853E5C /* UITableViewCell+NIKKA.m in Sources */,
-				DA06F7E91E8E701500D1907E /* NSString+Expand.m in Sources */,
-				A6D468EA1EDE9C5E006375F6 /* UserManager.m in Sources */,
+				DA06F7E91E8E701500D1907E /* NSString+Nikka.m in Sources */,
+				A6D468EA1EDE9C5E006375F6 /* UserInfo.m in Sources */,
 				A6D468751EDE9821006375F6 /* MeTableViewCell.m in Sources */,
 				DA70C7831ED01E3100C070F9 /* UIButton+Swizzling.m in Sources */,
 				A6D468DF1EDE9A3C006375F6 /* NextViewController.m in Sources */,
+				A613786F1EE015B900360D7F /* macroCommon.swift in Sources */,
 				A6D468DC1EDE9A3C006375F6 /* BaseTabBarController.m in Sources */,
 				A6D468B71EDE98BE006375F6 /* TBMessageSchudule.m in Sources */,
-				A6D468791EDE9821006375F6 /* UserDataManager.m in Sources */,
+				A613786C1EE001DB00360D7F /* ActivityController.swift in Sources */,
+				A6D468791EDE9821006375F6 /* NKAppManager.m in Sources */,
 				DA0FF0C81E4C65CF00B56ED6 /* UIView+Attribute.m in Sources */,
 				A6D468DE1EDE9A3C006375F6 /* FourPingTransition.m in Sources */,
 				DAFC3D8D1ECBE4BE00392DAE /* UILabel+nikka.m in Sources */,
 				A6D4686D1EDE9821006375F6 /* RecordViewController.m in Sources */,
+				A6EB2A611EEA8252009196F6 /* UIImage+Nikka.m in Sources */,
 				A6D468671EDE9821006375F6 /* BalanceViewController.m in Sources */,
+				A6EB29DD1EE6AEE4009196F6 /* WhiteListModel.m in Sources */,
 				A6D468701EDE9821006375F6 /* FeedbackViewController.m in Sources */,
+				A61378431EDFDFAA00360D7F /* AmaenboController.m in Sources */,
 				DAF2939C1EBC1B1400853E5C /* UIColor+NIKKA.m in Sources */,
 				A6D468B31EDE988E006375F6 /* algorithm.c in Sources */,
 				DA70C78C1ED03A2E00C070F9 /* NSDictionary+Parser.m in Sources */,
@@ -704,6 +738,7 @@
 				A6D468E21EDE9A3C006375F6 /* LYTextField.m in Sources */,
 				DA2A13CA1E481B9A0096EAD4 /* AppDelegate.m in Sources */,
 				DA70C7811ED01E3100C070F9 /* NSMutableDictionary+Swizzling.m in Sources */,
+				A6EB29E31EE7931A009196F6 /* DeviceInfo.m in Sources */,
 				DA0FF0B91E4C5FB000B56ED6 /* MacroDefinition.h in Sources */,
 				A6D4685B1EDE9821006375F6 /* GridViewController.m in Sources */,
 				DA70C7821ED01E3100C070F9 /* NSObject+Swizzling.m in Sources */,
@@ -713,10 +748,10 @@
 				DAF293941EBC081900853E5C /* UIButton+NIKButton.m in Sources */,
 				A6D468741EDE9821006375F6 /* GiftViewController.m in Sources */,
 				DA70C7801ED01E3100C070F9 /* NSMutableArray+Swizzling.m in Sources */,
+				A6EB29E01EE78F1D009196F6 /* EnvInfo.m in Sources */,
 				A6D4686B1EDE9821006375F6 /* RecordTableViewCell.m in Sources */,
 				A6D468DA1EDE9A3C006375F6 /* AlipayXiuYiXiuViewController.m in Sources */,
 				A6D4686E1EDE9821006375F6 /* AboutViewController.m in Sources */,
-				A6D468661EDE9821006375F6 /* AcitivityViewController.m in Sources */,
 				A6D468DB1EDE9A3C006375F6 /* BaseNavigationController.m in Sources */,
 				A6D468711EDE9821006375F6 /* FirstWaves.m in Sources */,
 				A6D468E01EDE9A3C006375F6 /* NotificationManager.m in Sources */,
@@ -849,18 +884,24 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Bugatti/Bugatti.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = FJ8N4S5A53;
 				GCC_INPUT_FILETYPE = automatic;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Bugatti/PrefixHeader.pch";
 				INFOPLIST_FILE = Bugatti/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.push.A02;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7ca37de0-c24a-4998-8e7b-88fb53560190";
-				PROVISIONING_PROFILE_SPECIFIER = A02PUSHDEVELOP;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Bugatti/Bugatti-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
@@ -871,18 +912,23 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Bugatti/Bugatti.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = FJ8N4S5A53;
 				GCC_INPUT_FILETYPE = automatic;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Bugatti/PrefixHeader.pch";
 				INFOPLIST_FILE = Bugatti/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.push.A02;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7ca37de0-c24a-4998-8e7b-88fb53560190";
-				PROVISIONING_PROFILE_SPECIFIER = A02PUSHDEVELOP;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Bugatti/Bugatti-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
